@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>FEC-Slideshow | Front-End Coders</title>
+
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      .fec-slideshow {
+        height: 100vh;
+        width: 100%;
+      }
+    </style>
+
+    <script src="./fec-slideshow.js"></script>
+    <fec-slideshow class="fec-slideshow"></fec-slideshow>
+    <script>
+      const slideshow = document.querySelector(".fec-slideshow");
+
+      slideshow.preload = true;
+
+      const images = [
+        "https://picsum.photos/id/231/1000/550",
+        "https://picsum.photos/id/232/1000/550",
+        "https://picsum.photos/id/233/1000/550",
+        "https://picsum.photos/id/234/1000/550",
+        "https://picsum.photos/id/235/1000/550"
+      ];
+
+      slideshow.images = images;
+    </script>
+  </body>
+</html>
