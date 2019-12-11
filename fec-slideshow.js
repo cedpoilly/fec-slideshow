@@ -1,8 +1,7 @@
 const buildShadowRoot = (html, elem) => {
   const template = document.createElement("template");
   template.innerHTML = html;
-  typeof ShadyCSS !== "undefined" &&
-    ShadyCSS.prepareTemplate(template, elem.localName);
+  typeof ShadyCSS !== "undefined" && ShadyCSS.prepareTemplate(template, elem.localName);
 
   const shadowRoot = elem.attachShadow({ mode: `open` });
   shadowRoot.appendChild(template.content.cloneNode(true), true);
@@ -99,7 +98,7 @@ class FecSlideshow extends HTMLElement {
       }
 
       @keyframes fade {
-        0% {
+        25% {
           opacity: 1;
         }
         50% {
@@ -169,23 +168,11 @@ class FecSlideshow extends HTMLElement {
     this._setOneProperty(main, "--numberOfImages", this._images.length);
 
     const duration = this.slideDuration ? parseInt(this.slideDuration) : 4000;
-    this._setOneProperty(
-      main,
-      "--duration",
-      `${this._images.length * (duration / 1000)}s`
-    );
+    this._setOneProperty(main, "--duration", `${this._images.length * (duration / 1000)}s`);
 
-    this._setOneProperty(
-      main,
-      "--fadeDuration",
-      `calc(var(--duration) / var(--numberOfImages))`
-    );
+    this._setOneProperty(main, "--fadeDuration", `calc(var(--duration) / var(--numberOfImages))`);
 
-    this._setOneProperty(
-      main,
-      "--delayDuration",
-      `calc(var(--fadeDuration) / 2)`
-    );
+    this._setOneProperty(main, "--delayDuration", `calc(var(--fadeDuration) / 2)`);
   }
 
   _setImageCustomProperties(main, images) {
